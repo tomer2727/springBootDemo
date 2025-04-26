@@ -1,5 +1,7 @@
 package com.example.bookcatalogservice.controller;
 
+import com.example.bookcatalogservice.dto.BookDTO;
+import com.example.bookcatalogservice.dto.BookCreateDTO;
 import com.example.bookcatalogservice.model.Book;
 import com.example.bookcatalogservice.service.BookService;
 import org.springframework.web.bind.annotation.*;
@@ -13,12 +15,12 @@ public class BookController {
     }
 
     @PostMapping
-    public Book create(@RequestBody Book book) {
-        return service.create(book);
+    public BookDTO create(@RequestBody BookCreateDTO dto) {
+        return service.create(dto);
     }
 
     @GetMapping("/{id}")
-    public Book getById(@PathVariable Long id) {
+    public BookDTO getById(@PathVariable Long id) {
         return service.findById(id);
     }
 }
